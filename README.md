@@ -10,7 +10,7 @@ You can perform most operations on the DOM, e.g:
 
 `Document.GetElementById("elem_id").InsertAdjacentHTML("afterbegin", "<div>Content</div>")`
 
-Event handling to be cancel click and dblclick events from .Net
+Event handling to cancel click and dblclick events from .Net
 
 .Net handlers for Click, Mouse, Keyboard, Input, ContextMenu and Custom events.
 
