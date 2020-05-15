@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1145
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WebView2 Test", "WebView2 Test.vbproj", "{0BC7DA79-157A-4391-8A00-B60111E37D9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BC7DA79-157A-4391-8A00-B60111E37D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC7DA79-157A-4391-8A00-B60111E37D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC7DA79-157A-4391-8A00-B60111E37D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC7DA79-157A-4391-8A00-B60111E37D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {051FDF3F-85FC-42F9-AB9D-B946F6207DE1}
+	EndGlobalSection
+EndGlobal
