@@ -23,3 +23,5 @@ Private Sub WebView2_DOMClickEvent(sender As Object, e As WVEvent) Handles WebVi
 End Sub
 
 ```
+Added GetElementsByTagName
+Changed EvaluateAll to snapshot type, so elements can be modified from it.
