@@ -24,4 +24,5 @@ End Sub
 
 ```
 Added GetElementsByTagName
+
 Changed EvaluateAll to snapshot type, so elements can be modified from it.
