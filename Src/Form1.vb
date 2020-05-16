@@ -32,4 +32,12 @@ Friend Class Form1
 	Private Sub WebView2_CoreWebView2Ready(sender As Object, e As EventArgs) Handles WebView2.CoreWebView2Ready
 		WebView2.CoreWebView2.Navigate("https://google.co.uk")
 	End Sub
+
+	Private Sub WebView2_DOMDocumentComplete(sender As Object) Handles WebView2.DOMDocumentComplete
+		For Each Elem In WebView2.Document.EvaluateAll("//input")
+			If Elem.TagName = "INPUT" Then
+				Elem.Attribute("value") = "Hello"
+			End If
+		Next
+	End Sub
 End Class
