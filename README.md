@@ -29,4 +29,5 @@ Added GetElementsByTagName
 Changed EvaluateAll to snapshot type, so elements can be modified from it.
 
 Started adding support for DevTools Protocol
+
 Note: Due to a bug, Protocol.GetCookies({url}) does not work yet, GetCookies() and GetAllCookies() do work.
