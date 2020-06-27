@@ -28,10 +28,8 @@ Added GetElementsByTagName
 
 Changed EvaluateAll to snapshot type, so elements can be modified from it.
 
-### Started adding support for DevTools Protocol
+### Started adding support for DevTools Protocol including events
 Note: `WebView2.Protocol.GetCookies({"https://google.co.uk"})` needs to supply full url
-
-### Added DevTools Protocol Events
 ```
 Private Sub WebView2_CoreWebView2Ready(sender As Object, e As EventArgs) Handles WebView2.CoreWebView2Ready
 	WebView2.CoreWebView2.Navigate("https://google.co.uk")
