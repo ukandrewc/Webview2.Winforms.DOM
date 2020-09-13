@@ -49,7 +49,7 @@ End Sub
 
 ```
 
-### Updated for pre-release 0.0.628
+### Updated for pre-release 0.9.628
 Added sample project with tabbed browser
 
 Added download notifications using DevTools Protocol
