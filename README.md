@@ -49,5 +49,6 @@ End Sub
 
 ```
 
-Added sample project with tabbed browswe
+Added sample project with tabbed browser
+
 Added download notifications using DevTools Protocol
