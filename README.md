@@ -53,3 +53,9 @@ End Sub
 Added sample project with tabbed browser
 
 Added download notifications using DevTools Protocol
+
+Added ability to use CorewebView2Environment that doesn't require Async
+```
+Dim Environment = WVUtils.CreateEnvironment("", "My Folder", MyOptions)
+WVBrowser.EnsureWebView2(Environment)
+```
