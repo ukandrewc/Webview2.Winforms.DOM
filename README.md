@@ -59,3 +59,10 @@ Added ability to use CorewebView2Environment that doesn't require Async
 Dim Environment = WVUtils.CreateEnvironment("", "My Folder", MyOptions)
 WVBrowser.EnsureWebView2(Environment)
 ```
+### Major update with breaking changes
+Default DOM events have changed and now need to add using AddEventHandler
+
+Added support for accessing iframes, including FrameLoaded and FrameCompleted events
+
+
+
