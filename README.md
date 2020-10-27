@@ -64,7 +64,7 @@ Default DOM events have changed and now need to add using AddEventHandler
 
 Added support for accessing iframes, including FrameLoaded and FrameCompleted events
 
-### Updated for pre=release 1.0.674.0
+### Updated for pre-release 1.0.674.0
 
 Added specific IFrameElement class for IFrames
 
