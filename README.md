@@ -11,16 +11,32 @@ You can perform most operations on the DOM, e.g:
 
 `Document.GetElementById("elem_id").InsertAdjacentHTML("afterbegin", "<div>Content</div>")`
 
-Event handling to cancel click and dblclick events from .Net
-
-.Net handlers for Click, Mouse, Keyboard, Input, ContextMenu and Custom events.
-
-In JS, the click and dblclick events are cancelled by preventDefault and stopPropogation. After being raised in .Net, they are only dispatched if ReturnValue = True (default).
+Because script cannot be executed during a synchronous event, two events are raised, one Sync, and one Async.
+The Sync event is raised first. It can cancel the event default in WebView2, or the Async event in WVBrowser.
+To make the decision to cancel, evaluatable code can be passed into the Sync event.
 
 ```
-Private Sub WebView2_DOMClickEvent(sender As Object, e As WVEvent) Handles WebView2.DOMClickEvent
-	'Click events can be cancelled using ReturnValue
-	e.ReturnValue = e.Target.TextContent <> "About"
+'Add the event handler
+Private Sub Web_DOMDocumentComplete(sender As Object) Handles Web.DOMDocumentComplete
+	'Add click event handler, pass script to return: e.target.tagName, e.x, e.y to Sync event
+	Web.AddEventHandler("click", "e.target.tagName", "e.x", "e.y")
+End Sub
+
+'Can't execute script or use DOM in Sync event
+Private Sub Web_DOMEventSync(Type As String, ByRef e As WVEventHost.SyncEventArgs) Handles Web.DOMEventSync
+	'Prevent default if BODY
+	e.PreventDefault = e.Values(0) = "BODY"
+	
+	'Prevent Async if not BODY
+	e.PreventAsync = e.Values(0) <> "BODY"
+End Sub
+
+'Can execute script and call DOM here
+Private Sub Web_DOMEventAsync(Type As String, e As WVEvent) Handles Elm.DOMEventAsync
+	'Get BODY InnerHTML
+	If Type = "click" Then
+		Dim h = Web.Document.Body.InnerHTML
+	End If
 End Sub
 
 ```
