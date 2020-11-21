@@ -9,7 +9,10 @@ Also implements QuerySelector/QuerySelectorAll and Evaluate/EvaluateAll (XPath) 
 
 You can perform most operations on the DOM, e.g:
 
-`Document.GetElementById("elem_id").InsertAdjacentHTML("afterbegin", "<div>Content</div>")`
+```
+Document.GetElementById("elem_id").InsertAdjacentHTML("afterbegin", "<div>Content</div>")
+Dim x = Document.Evaluate("//input[@id='form_input']")
+```
 
 ### Event handling
 Because script cannot be executed during a synchronous event, two events are raised, one Sync, and one Async.
