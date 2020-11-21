@@ -44,7 +44,7 @@ Private Sub Web_DOMEventAsync(Type As String, e As WVEvent) Handles Elm.DOMEvent
 End Sub
 
 ```
-### Started adding support for DevTools Protocol including events
+### Support for DevTools Protocol with events
 Note: `WebView2.Protocol.GetCookies({"https://google.co.uk"})` needs to supply full url
 ```
 Private Sub WebView2_CoreWebView2Ready(sender As Object, e As EventArgs) Handles WebView2.CoreWebView2Ready
