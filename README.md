@@ -44,10 +44,6 @@ Private Sub Web_DOMEventAsync(Type As String, e As WVEvent) Handles Elm.DOMEvent
 End Sub
 
 ```
-Added GetElementsByTagName
-
-Changed EvaluateAll to snapshot type, so elements can be modified from it.
-
 ### Started adding support for DevTools Protocol including events
 Note: `WebView2.Protocol.GetCookies({"https://google.co.uk"})` needs to supply full url
 ```
