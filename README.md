@@ -76,7 +76,7 @@ Dim Environment = WVUtils.CreateEnvironment("", "My Folder", MyOptions)
 WVBrowser.EnsureWebView2(Environment)
 ```
 ### Major update with breaking changes
-Default DOM events have changed and now need to add using AddEventHandler
+Default DOM events have changed and now need to added using AddEventHandler
 
 Added support for accessing iFrames, including FrameLoaded and FrameCompleted events
 
