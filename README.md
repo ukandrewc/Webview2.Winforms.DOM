@@ -11,6 +11,7 @@ You can perform most operations on the DOM, e.g:
 
 `Document.GetElementById("elem_id").InsertAdjacentHTML("afterbegin", "<div>Content</div>")`
 
+### Event handling
 Because script cannot be executed during a synchronous event, two events are raised, one Sync, and one Async.
 The Sync event is raised first. It can cancel the event default in WebView2, or the Async event in WVBrowser.
 To make the decision to cancel, evaluatable code can be passed into the Sync event.
