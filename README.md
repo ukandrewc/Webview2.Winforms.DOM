@@ -3,9 +3,9 @@ Experimental DOM implementation for [Microsoft.Webview2.Winforms](https://docs.m
 
 An implementation for a WebView2 DOM, that can be accessed from .Net
 
+### DOM access
 It implements Window, Document, Element, Attribute, Style and Node.
-Also implements QuerySelecte
-or/QuerySelectorAll and Evaluate/EvaluateAll (XPath) on WebView2
+Also implements QuerySelector/QuerySelectorAll and Evaluate/EvaluateAll (XPath) on WebView2
 
 You can perform most operations on the DOM, e.g:
 
