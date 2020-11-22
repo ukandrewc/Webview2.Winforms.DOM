@@ -18,7 +18,7 @@ Dim x = Document.Evaluate("//input[@id='form_input']")
 Because script cannot be executed during a synchronous event, two events are raised, one Sync, and one Async.
 The Sync event is raised first. It can prevent the default handling in WebView2, or the Async event in WVBrowser.
 
-To make the decision to cancel, code is passed into AddEventHandler, and the result passed to the Sync event.
+To make the decision to cancel, an array of code to evaluate, is passed into AddEventHandler, and the results passed to the Sync event.
 
 ```
 'Add the event handler
