@@ -84,5 +84,5 @@ Added support for accessing iFrames, including FrameLoaded and FrameCompleted ev
 ### Updated for pre-release 1.0.674.0
 
 Added specific WVIFrameElement class for iFrames
-Any function that returns a WVElement, will now return a WVIFrameElement, when the elemnt is an iFrame
+Any function that returns a WVElement, will now return a WVIFrameElement, when the element is an iFrame
 
