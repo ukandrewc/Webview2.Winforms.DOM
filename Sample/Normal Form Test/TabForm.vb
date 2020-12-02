@@ -103,16 +103,16 @@ Public Class TabForm
 		Console.WriteLine(TestCounter & ": " & TestWeb.Source.ToString)
 	End Sub
 
-	Private Sub TestWeb_CoreWebView2Ready(sender As Object, e As EventArgs) Handles TestWeb.CoreWebView2Ready
-		TestWeb.CoreWebView2.OpenDevToolsWindow()
-	End Sub
-
 	Private Sub TabView_NavigationStarting(Browser As WVBrowser, e As CoreWebView2NavigationStartingEventArgs) Handles TabView.NavigationStarting
 		'If e.Uri.Contains("google") And Browser.AllowResourceContexts.Count = 0 Then
 		'	Browser.AllowResourceContexts.Add(CoreWebView2WebResourceContext.Document)
 		'Else
 		'	Browser.AllowResourceContexts.Remove(CoreWebView2WebResourceContext.Document)
 		'End If
+	End Sub
+
+	Private Sub TestWeb_CoreWebView2InitializationCompleted(sender As Object, e As CoreWebView2InitializationCompletedEventArgs) Handles TestWeb.CoreWebView2InitializationCompleted
+		TestWeb.CoreWebView2.OpenDevToolsWindow()
 	End Sub
 End Class
 
