@@ -86,3 +86,24 @@ Added support for accessing iFrames, including FrameLoaded and FrameCompleted ev
 Added specific WVIFrameElement class for iFrames
 Any function that returns a WVElement, will now return a WVIFrameElement, when the element is an iFrame
 
+### Updated for pre-release 1.0.707.0
+
+Added more specific types for TABLE, FORM and elements that have special functionality
+
+WVTable, WVTableSection, WVTableRow, WVTableCell | WVForm, WVinput | WVAnchor
+
+Added DeferReflow() and ApplyReflow() to defer page reflow when updating:
+
+```
+Dim Table = Web.Document.Evaluate("//table")
+'Defer reflow
+Table.DeferReflow()
+For Each Row in Table.TBodies(0).Rows
+	For Each Cel in Row.Cells
+		Cel.Style("borderLeft") = $"4px solid {Choose(1 + Rnd() * 5, "red", "green", "yellow", "blue", "orange")}"
+	Next
+Next
+'Apply update
+Table.ApplyReflow()
+
+```
