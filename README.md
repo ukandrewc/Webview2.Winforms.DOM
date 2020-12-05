@@ -20,11 +20,11 @@ The Sync event is raised first. It can prevent default handling in javascript an
 
 To make the decision to cancel, an array of script to evaluate, is passed into AddEventHandler, and the results passed to the Sync event.
 
+#### Add the event handler to browser
 ```
-'Add the event handler
 Private Sub Web_DOMDocumentComplete(sender As Object) Handles Web.DOMDocumentComplete
 	'Add click event handler, pass script to return: e.target.tagName, e.x, e.y to Sync event
-	Web.AddEventHandler("click", "e.target.tagName", "e.x", "e.y")
+	Web.AddEventHandler("document.body", "click", "e.target.tagName", "e.x", "e.y")
 End Sub
 
 'Can't execute script or use DOM in Sync event
@@ -37,7 +37,7 @@ Private Sub Web_DOMEventSync(Type As String, ByRef e As WVEventHost.SyncEventArg
 End Sub
 
 'Can execute script and call DOM here
-Private Sub Web_DOMEventAsync(Type As String, e As WVEvent) Handles Elm.DOMEventAsync
+Private Sub Web_DOMEventAsync(Type As String, e As WVEvent) Handles Web.DOMEventAsync
 	'Get BODY InnerHTML
 	If Type = "click" Then
 		Dim h = Web.Document.Body.InnerHTML
@@ -45,6 +45,22 @@ Private Sub Web_DOMEventAsync(Type As String, e As WVEvent) Handles Elm.DOMEvent
 End Sub
 
 ```
+#### Add the event handler to element
+```
+Private WithEvents Div as WVElement
+
+Private Sub Web_DOMDocumentComplete(sender As Object) Handles Web.DOMDocumentComplete
+	Div = Web.Document.GetElementById("myElement")
+	'Add click event handler
+	Div.AddEventHandler("click")
+End Sub
+
+Private Sub Div_DOMEventAsync(Type As String, e As WVEvent) Handles Div.DOMEventAsync
+'Process event
+End Sub
+
+```
+
 ### Support for DevTools Protocol with events
 Note: `WebView2.Protocol.GetCookies({"https://google.co.uk"})` needs to supply full url
 ```
