@@ -19,7 +19,10 @@ Public Class TestFrm
 
 	Private Sub Body_DOMEventAsync(Type As String, e As WVEvent) Handles Body.DOMEventAsync
 		If Type = "mouseover" Then
-			ElemLabel.Text = WvBrowser1.Document.ElementFromPoint(New Point(e.PageX, e.PageY)).TagName
+			Dim Elm = WvBrowser1.Document.ElementFromPoint(New Point(e.PageX, e.PageY))
+			If Elm IsNot Nothing Then
+				ElemLabel.Text = Elm.TagName
+			End If
 		End If
 	End Sub
 End Class
