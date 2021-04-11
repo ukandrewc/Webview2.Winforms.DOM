@@ -130,7 +130,7 @@ Started adding support for Selection and Range
 
 Removed internal Autofill implementation pending WebView2 API.
 
-## Breaking Changes
+#### Breaking Changes
 
 Updated DOM structure to more closely follow JS DOM.
 
