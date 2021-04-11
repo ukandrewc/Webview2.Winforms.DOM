@@ -123,3 +123,17 @@ Next
 Table.ApplyReflow()
 
 ```
+
+### Updated for pre-release 1.0.824.0
+
+Started adding support for Selection and Range
+
+Removed internal Autofill implementation pending WebView2 API.
+
+## Breaking Changes
+
+Updated DOM structure to more closely follow JS DOM.
+
+WVDOMBase renamed WVElement, WVElement renamed WVHTMLElement
+
+TabStrip renamed WVTabstrip, NavStrip renamed WVNavstrip
