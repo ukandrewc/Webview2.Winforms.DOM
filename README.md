@@ -22,7 +22,7 @@ To make the decision to cancel, an array of script to evaluate, is passed into A
 
 #### Add the event handler to browser
 ```
-Private WithEvents Body As WVElement
+Private WithEvents Body As WVHTMLElement
 
 Private Sub Web_DOMDocumentComplete(sender As Object) Handles Web.DOMDocumentComplete
 	'Add click event handler, pass script to return: e.target.tagName, e.x, e.y to Sync event
