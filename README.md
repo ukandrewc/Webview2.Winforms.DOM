@@ -143,7 +143,7 @@ WVDOMBase renamed WVElement, WVElement renamed WVHTMLElement
 
 TabStrip renamed WVTabstrip, NavStrip renamed WVNavstrip
 
-### Changed version to follow WebView2 release 1.0.824.0
+### Changed version to follow WebView2
 
 The version of WVBrowser will now reflect the version of WebView2, it works with.
 
