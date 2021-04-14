@@ -22,13 +22,16 @@ To make the decision to cancel, an array of script to evaluate, is passed into A
 
 #### Add the event handler to browser
 ```
+Private WithEvents Body As WVElement
+
 Private Sub Web_DOMDocumentComplete(sender As Object) Handles Web.DOMDocumentComplete
 	'Add click event handler, pass script to return: e.target.tagName, e.x, e.y to Sync event
-	Web.AddEventHandler("document.body", "click", "e.target.tagName", "e.x", "e.y")
+	Body = Web.document.body
+	Body.AddEventHandler("click", "e.target.tagName", "e.x", "e.y")
 End Sub
 
 'Can't execute script or use DOM in Sync event
-Private Sub Web_DOMEventSync(Type As String, ByRef e As WVEventHost.SyncEventArgs) Handles Web.DOMEventSync
+Private Sub Body_DOMEventSync(Type As String, ByRef e As WVEventHost.SyncEventArgs) Handles Body.DOMEventSync
 	'Prevent default if BODY
 	e.PreventDefault = e.Values(0) = "BODY"
 	
@@ -36,11 +39,11 @@ Private Sub Web_DOMEventSync(Type As String, ByRef e As WVEventHost.SyncEventArg
 	e.PreventAsync = e.Values(0) <> "BODY"
 End Sub
 
-'Can execute script and call DOM here
-Private Sub Web_DOMEventAsync(Type As String, e As WVEvent) Handles Web.DOMEventAsync
+'Can execute script and call DOM in Async event
+Private Sub Body_DOMEventAsync(Type As String, e As WVEvent) Handles Body.DOMEventAsync
 	'Get BODY InnerHTML
 	If Type = "click" Then
-		Dim h = Web.Document.Body.InnerHTML
+		Dim h = Body.InnerHTML
 	End If
 End Sub
 
@@ -137,3 +140,41 @@ Updated DOM structure to more closely follow JS DOM.
 WVDOMBase renamed WVElement, WVElement renamed WVHTMLElement
 
 TabStrip renamed WVTabstrip, NavStrip renamed WVNavstrip
+
+### Changed version to follow WebView2 release 1.0.824.0
+
+The version of WVBrowser will now reflect the version of WebView2, it works with.
+
+Changed names of properties and methods to match JS camelCase.
+
+Finished adding Selection and Range support.
+
+#### Breaking Change - Event Support
+Removed event support on WVBrowser, it is now only available for WVElement and WVHTMLElement.
+To add events you need to add a WVElement or WVHTMLElement reference and use that, e.g.
+
+```
+Private WithEvents Body As WVElement
+
+Private Sub WvBrowser1_DOMDocumentComplete(sender As Object) Handles WvBrowser1.DOMDocumentComplete
+	Body = WvBrowser1.Document.body
+	Body.AddEventHandler("mouseover")
+	Body.AddEventHandler("mouseup")
+End Sub
+
+Private Sub Body_DOMEventAsync(Type As String, e As WVEvent) Handles Body.DOMEventAsync
+	If Type = "mouseover" Then
+		ElemLabel.Text = WvBrowser1.document.elementFromPoint(New Point(e.pageX, e.pageY)).tagName
+	End If
+End Sub
+```
+
+#### Added Await extension for Async Tasks
+
+There is now an Await extension for all Tasks, so you can call Async methods Synchronously, without needing to use Async and Await architecture, e.g
+
+```
+WvBrowser1.EnsureCoreWebView2Async().Await
+```
+
+
