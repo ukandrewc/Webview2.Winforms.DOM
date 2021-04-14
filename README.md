@@ -32,11 +32,13 @@ End Sub
 
 'Can't execute script or use DOM in Sync event
 Private Sub Body_DOMEventSync(Type As String, ByRef e As WVEventHost.SyncEventArgs) Handles Body.DOMEventSync
+
 	'Prevent default if BODY
 	e.PreventDefault = e.Values(0) = "BODY"
 	
 	'Prevent Async if not BODY
 	e.PreventAsync = e.Values(0) <> "BODY"
+	
 End Sub
 
 'Can execute script and call DOM in Async event
