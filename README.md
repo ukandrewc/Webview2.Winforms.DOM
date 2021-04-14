@@ -94,8 +94,8 @@ Added download notifications using DevTools Protocol
 
 Added ability to use CorewebView2Environment that doesn't require Async
 ```
-Dim Environment = WVUtils.CreateEnvironment("", "My Folder", MyOptions)
-WVBrowser.EnsureWebView2(Environment)
+Dim Env = CoreWebView2Environment.CreateAsync("", "My Folder", MyOptions).Await
+WVBrowser.EnsureWebView2Async(Env).Await
 ```
 ### Major update with breaking changes
 Default DOM events have changed and now need to be added using AddEventHandler as described above
@@ -173,7 +173,7 @@ End Sub
 
 #### Added Await extension for Async Tasks
 
-There is now an Await extension for all Tasks, so you can call Async methods Synchronously, without needing to use Async and Await architecture, e.g
+There is now an Await extension for all Tasks, so you can call Async methods Synchronously, without needing to use Async and Await, e.g
 
 ```
 WvBrowser1.EnsureCoreWebView2Async().Await
