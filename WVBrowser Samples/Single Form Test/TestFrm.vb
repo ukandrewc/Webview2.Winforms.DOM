@@ -13,16 +13,16 @@ Public Class TestFrm
 	End Sub
 
 	Private Sub WvBrowser1_DOMDocumentComplete(sender As Object) Handles WvBrowser1.DOMDocumentComplete
-		Body = WvBrowser1.Document.Body
+		Body = WvBrowser1.Document.body
 		Body.AddEventHandler("mouseover")
+		Body.AddEventHandler("mouseup")
 	End Sub
 
 	Private Sub Body_DOMEventAsync(Type As String, e As WVEvent) Handles Body.DOMEventAsync
 		If Type = "mouseover" Then
-			Dim Elm = WvBrowser1.Document.ElementFromPoint(New Point(e.PageX, e.PageY))
-			If Elm IsNot Nothing Then
-				ElemLabel.Text = Elm.TagName
-			End If
+			ElemLabel.Text = WvBrowser1.document.elementFromPoint(New Point(e.pageX, e.pageY)).tagName
+		ElseIf Type = "mouseup" Then
+			ElemLabel.Text = WvBrowser1.document.getSelection.toString
 		End If
 	End Sub
 End Class
