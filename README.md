@@ -180,7 +180,7 @@ WvBrowser1.EnsureCoreWebView2Async().Await
 ```
 
 ### Update 0.0.865.0
-No major changes, just released against WebView2 1.0856.0
+No major changes, just released against WebView2 1.0865.0
 
 #### Update 0.0.865.1
 Added: functionality to WVWindow
