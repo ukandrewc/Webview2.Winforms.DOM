@@ -184,4 +184,10 @@ No major changes, just released against WebView2 1.0856.0
 
 #### Update 0.0.865.1
 Added: functionality to WVWindow
+
 Fixed: Issues with Boolean properties
+
+#### Update 0.0.865.2
+Fixed: Issue with missing DLL in previous version
+
+Added: [JSHelper extensions](https://github.com/ukandrewc/WebView2.Winforms.JSHelper) to WVBrowser
